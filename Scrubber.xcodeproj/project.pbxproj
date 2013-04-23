@@ -1,0 +1,352 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		40915896172603740052EC16 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40915895172603740052EC16 /* Cocoa.framework */; };
+		409158A0172603740052EC16 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4091589E172603740052EC16 /* InfoPlist.strings */; };
+		409158A2172603740052EC16 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 409158A1172603740052EC16 /* main.m */; };
+		409158A6172603740052EC16 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 409158A4172603740052EC16 /* Credits.rtf */; };
+		409158A9172603740052EC16 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 409158A8172603740052EC16 /* AppDelegate.m */; };
+		409158AC172603740052EC16 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 409158AA172603740052EC16 /* MainMenu.xib */; };
+		409158B3172603C30052EC16 /* SnoizeMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 409158B2172603C30052EC16 /* SnoizeMIDI.framework */; };
+		409158B6172604C90052EC16 /* MMCOutput.m in Sources */ = {isa = PBXBuildFile; fileRef = 409158B5172604C90052EC16 /* MMCOutput.m */; };
+		409158BE172605940052EC16 /* F53Timecode-MTCAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 409158B9172605940052EC16 /* F53Timecode-MTCAdditions.m */; };
+		409158BF172605940052EC16 /* F53Timecode-OSCAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 409158BB172605940052EC16 /* F53Timecode-OSCAdditions.m */; };
+		409158C0172605940052EC16 /* F53Timecode.m in Sources */ = {isa = PBXBuildFile; fileRef = 409158BD172605940052EC16 /* F53Timecode.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		40915892172603740052EC16 /* Scrubber.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scrubber.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		40915895172603740052EC16 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		40915898172603740052EC16 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		40915899172603740052EC16 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		4091589A172603740052EC16 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		4091589D172603740052EC16 /* Scrubber-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Scrubber-Info.plist"; sourceTree = "<group>"; };
+		4091589F172603740052EC16 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		409158A1172603740052EC16 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		409158A3172603740052EC16 /* Scrubber-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Scrubber-Prefix.pch"; sourceTree = "<group>"; };
+		409158A5172603740052EC16 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		409158A7172603740052EC16 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		409158A8172603740052EC16 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		409158AB172603740052EC16 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		409158B2172603C30052EC16 /* SnoizeMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SnoizeMIDI.framework; sourceTree = "<group>"; };
+		409158B4172604C90052EC16 /* MMCOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMCOutput.h; sourceTree = "<group>"; };
+		409158B5172604C90052EC16 /* MMCOutput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMCOutput.m; sourceTree = "<group>"; };
+		409158B8172605940052EC16 /* F53Timecode-MTCAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "F53Timecode-MTCAdditions.h"; sourceTree = "<group>"; };
+		409158B9172605940052EC16 /* F53Timecode-MTCAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "F53Timecode-MTCAdditions.m"; sourceTree = "<group>"; };
+		409158BA172605940052EC16 /* F53Timecode-OSCAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "F53Timecode-OSCAdditions.h"; sourceTree = "<group>"; };
+		409158BB172605940052EC16 /* F53Timecode-OSCAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "F53Timecode-OSCAdditions.m"; sourceTree = "<group>"; };
+		409158BC172605940052EC16 /* F53Timecode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = F53Timecode.h; sourceTree = "<group>"; };
+		409158BD172605940052EC16 /* F53Timecode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = F53Timecode.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4091588F172603740052EC16 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				409158B3172603C30052EC16 /* SnoizeMIDI.framework in Frameworks */,
+				40915896172603740052EC16 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		40915889172603740052EC16 = {
+			isa = PBXGroup;
+			children = (
+				4091589B172603740052EC16 /* Scrubber */,
+				40915894172603740052EC16 /* Frameworks */,
+				40915893172603740052EC16 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		40915893172603740052EC16 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				40915892172603740052EC16 /* Scrubber.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		40915894172603740052EC16 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				409158B2172603C30052EC16 /* SnoizeMIDI.framework */,
+				40915895172603740052EC16 /* Cocoa.framework */,
+				40915897172603740052EC16 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		40915897172603740052EC16 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				40915898172603740052EC16 /* AppKit.framework */,
+				40915899172603740052EC16 /* CoreData.framework */,
+				4091589A172603740052EC16 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		4091589B172603740052EC16 /* Scrubber */ = {
+			isa = PBXGroup;
+			children = (
+				409158A7172603740052EC16 /* AppDelegate.h */,
+				409158A8172603740052EC16 /* AppDelegate.m */,
+				409158B4172604C90052EC16 /* MMCOutput.h */,
+				409158B5172604C90052EC16 /* MMCOutput.m */,
+				409158AA172603740052EC16 /* MainMenu.xib */,
+				409158B7172605940052EC16 /* F53Timecode */,
+				4091589C172603740052EC16 /* Supporting Files */,
+			);
+			path = Scrubber;
+			sourceTree = "<group>";
+		};
+		4091589C172603740052EC16 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4091589D172603740052EC16 /* Scrubber-Info.plist */,
+				4091589E172603740052EC16 /* InfoPlist.strings */,
+				409158A1172603740052EC16 /* main.m */,
+				409158A3172603740052EC16 /* Scrubber-Prefix.pch */,
+				409158A4172603740052EC16 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		409158B7172605940052EC16 /* F53Timecode */ = {
+			isa = PBXGroup;
+			children = (
+				409158B8172605940052EC16 /* F53Timecode-MTCAdditions.h */,
+				409158B9172605940052EC16 /* F53Timecode-MTCAdditions.m */,
+				409158BA172605940052EC16 /* F53Timecode-OSCAdditions.h */,
+				409158BB172605940052EC16 /* F53Timecode-OSCAdditions.m */,
+				409158BC172605940052EC16 /* F53Timecode.h */,
+				409158BD172605940052EC16 /* F53Timecode.m */,
+			);
+			path = F53Timecode;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		40915891172603740052EC16 /* Scrubber */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 409158AF172603740052EC16 /* Build configuration list for PBXNativeTarget "Scrubber" */;
+			buildPhases = (
+				4091588E172603740052EC16 /* Sources */,
+				4091588F172603740052EC16 /* Frameworks */,
+				40915890172603740052EC16 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Scrubber;
+			productName = Scrubber;
+			productReference = 40915892172603740052EC16 /* Scrubber.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4091588A172603740052EC16 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Figure 53";
+			};
+			buildConfigurationList = 4091588D172603740052EC16 /* Build configuration list for PBXProject "Scrubber" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 40915889172603740052EC16;
+			productRefGroup = 40915893172603740052EC16 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				40915891172603740052EC16 /* Scrubber */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		40915890172603740052EC16 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				409158A0172603740052EC16 /* InfoPlist.strings in Resources */,
+				409158A6172603740052EC16 /* Credits.rtf in Resources */,
+				409158AC172603740052EC16 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4091588E172603740052EC16 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				409158A2172603740052EC16 /* main.m in Sources */,
+				409158A9172603740052EC16 /* AppDelegate.m in Sources */,
+				409158B6172604C90052EC16 /* MMCOutput.m in Sources */,
+				409158BE172605940052EC16 /* F53Timecode-MTCAdditions.m in Sources */,
+				409158BF172605940052EC16 /* F53Timecode-OSCAdditions.m in Sources */,
+				409158C0172605940052EC16 /* F53Timecode.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		4091589E172603740052EC16 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4091589F172603740052EC16 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		409158A4172603740052EC16 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				409158A5172603740052EC16 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		409158AA172603740052EC16 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				409158AB172603740052EC16 /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		409158AD172603740052EC16 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		409158AE172603740052EC16 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		409158B0172603740052EC16 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Scrubber/Scrubber-Prefix.pch";
+				INFOPLIST_FILE = "Scrubber/Scrubber-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		409158B1172603740052EC16 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Scrubber/Scrubber-Prefix.pch";
+				INFOPLIST_FILE = "Scrubber/Scrubber-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4091588D172603740052EC16 /* Build configuration list for PBXProject "Scrubber" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				409158AD172603740052EC16 /* Debug */,
+				409158AE172603740052EC16 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		409158AF172603740052EC16 /* Build configuration list for PBXNativeTarget "Scrubber" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				409158B0172603740052EC16 /* Debug */,
+				409158B1172603740052EC16 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4091588A172603740052EC16 /* Project object */;
+}
