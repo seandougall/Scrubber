@@ -2,26 +2,7 @@
 //  F53Timecode-MTCAdditions.m
 //
 //  Created by Sean Dougall on 2/21/11.
-//
-//  Copyright (c) 2011 Figure 53 LLC, http://figure53.com
-//
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
-//
-//  The above copyright notice and this permission notice shall be included in
-//  all copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-//  THE SOFTWARE.
+//  Copyright 2011 Figure 53. All rights reserved.
 //
 
 #import "F53Timecode-MTCAdditions.h"
@@ -29,42 +10,48 @@
 
 @implementation F53Timecode (MTCAdditions)
 
-+ (F53Framerate) framerateForMTCIndex: (F53MTCFramerateIndex) index
++ (F53Framerate *) framerateForMTCIndex:(F53MTCFramerateIndex)index
 {
-    switch (index)
+    switch ( index )
     {
         case kF53MTCFramerateIndex24fps:
-            return F53Framerate24;
+            return [F53Framerate framerateWith24fps];
         case kF53MTCFramerateIndex25fps:
-            return F53Framerate25;
+            return [F53Framerate framerateWith25fps];
         case kF53MTCFramerateIndex30nd:
-            return F53Framerate2997nd;
+            return [F53Framerate framerateWith2997nondrop];
         case kF53MTCFramerateIndex30df:
-            return F53Framerate2997df;
+            return [F53Framerate framerateWith2997drop];
+        case kF53MTCFramerateIndexInvalid:
+            NSLog( @"index %d invalid", index );
+            return [F53Framerate invalidFramerateMarker];
     }
-    NSLog(@"index %d invalid", index);
-    return F53FramerateInvalid;
+    
+    return [F53Framerate invalidFramerateMarker];
 }
 
-+ (F53Framerate) framerateForMTCIndex: (F53MTCFramerateIndex) index pullDown: (BOOL) pullDown
++ (F53Framerate *) framerateForMTCIndex:(F53MTCFramerateIndex)index pullDown:(BOOL)pullDown
 {
-    switch (index)
+    switch ( index )
     {
         case kF53MTCFramerateIndex24fps:
-            return pullDown ? F53Framerate23976 : F53Framerate24;
+            return pullDown ? [F53Framerate framerateWith23976fps] : [F53Framerate framerateWith24fps];
         case kF53MTCFramerateIndex25fps:
-            return pullDown ? F53Framerate24975 : F53Framerate25;
+            return pullDown ? [F53Framerate framerateWith24975fps] : [F53Framerate framerateWith25fps];
         case kF53MTCFramerateIndex30nd:
-            return pullDown ? F53Framerate2997nd : F53Framerate30nd;
+            return pullDown ? [F53Framerate framerateWith2997nondrop] : [F53Framerate framerateWith30nondrop];
         case kF53MTCFramerateIndex30df:
-            return pullDown ? F53Framerate2997df : F53Framerate30df;
+            return pullDown ? [F53Framerate framerateWith2997drop] : [F53Framerate framerateWith30drop];
+        case kF53MTCFramerateIndexInvalid:
+            return [F53Framerate invalidFramerateMarker];
     }
-    return F53FramerateInvalid;
+    
+    return [F53Framerate invalidFramerateMarker];
 }
 
-+ (F53MTCFramerateIndex) mtcIndexForFramerate: (F53Framerate) framerate
++ (F53MTCFramerateIndex) mtcIndexForFramerate:(F53Framerate *)framerate
 {
-    switch (framerate.fps)
+    switch ( framerate.framesPerSecond )
     {
         case 24: 
             return kF53MTCFramerateIndex24fps;
@@ -76,60 +63,60 @@
     return kF53MTCFramerateIndexInvalid;
 }
 
-+ (F53Timecode *) timecodeWithMTCFramerateIndex: (F53MTCFramerateIndex) index
-                                             hh: (int) hh
-                                             mm: (int) mm
-                                             ss: (int) ss
-                                             ff: (int) ff
++ (F53Timecode *) timecodeWithMTCFramerateIndex:(F53MTCFramerateIndex)index
+                                             hh:(int)hh
+                                             mm:(int)mm
+                                             ss:(int)ss
+                                             ff:(int)ff
 {
-    if (index == kF53MTCFramerateIndexInvalid)
-        return [F53Timecode invalidTimecode];
+    if ( index == kF53MTCFramerateIndexInvalid )
+        return [F53Timecode invalidTimecodeMarker];
     
-    return [F53Timecode timecodeWithFramerate:[F53Timecode framerateForIndex:index] hh:hh mm:mm ss:ss ff:ff];
+    return [F53Timecode timecodeWithFramerate:[F53Timecode framerateForMTCIndex:index] negative:NO hours:hh minutes:mm seconds:ss frames:ff bits:0];
 }
 
 
-- (void) setHighHH: (int) h
+- (void) setHighHH:(int)h
 {
-    _framerate = [F53Timecode framerateForMTCIndex:((h & 0x06) >> 1)];
-    _hh = (h & 0x01) << 4 | (_hh & 0x0f);
-    [self addFrames:1];
+    self.framerate = [F53Timecode framerateForMTCIndex:((h & 0x06) >> 1)];
+    self.hours = (h & 0x01) << 4 | (self.hours & 0x0f);
+    self.framesFromZero++;
 }
 
-- (void) setLowHH: (int) h
+- (void) setLowHH:(int)h
 {
-    _hh = (_hh & 0xf0) | (h & 0x0f);
+    self.hours = (self.hours & 0xf0) | (h & 0x0f);
 }
 
-- (void) setHighMM: (int) m
+- (void) setHighMM:(int)m
 {
-    _mm = (m & 0x0f) << 4 | (_mm & 0x0f);
+    self.minutes = (m & 0x0f) << 4 | (self.minutes & 0x0f);
 }
 
-- (void) setLowMM: (int) m
+- (void) setLowMM:(int)m
 {
-    _mm = (_mm & 0xf0) | (m & 0x0f);
+    self.minutes = (self.minutes & 0xf0) | (m & 0x0f);
 }
 
-- (void) setHighSS: (int) s
+- (void) setHighSS:(int)s
 {
-    _ss = (s & 0x0f) << 4 | (_ss & 0x0f);
+    self.seconds = (s & 0x0f) << 4 | (self.seconds & 0x0f);
 }
 
-- (void) setLowSS: (int) s
+- (void) setLowSS:(int)s
 {
-    _ss = (_ss & 0xf0) | (s & 0x0f);
+    self.seconds = (self.seconds & 0xf0) | (s & 0x0f);
 }
 
-- (void) setHighFF: (int) f
+- (void) setHighFF:(int)f
 {
-    _ff = (f & 0x0f) << 4 | (_ff & 0x0f);
+    self.frames = (f & 0x0f) << 4 | (self.frames & 0x0f);
 }
 
-- (void) setLowFF: (int) f
+- (void) setLowFF:(int)f
 {
-    [self addFrames:1];
-    _ff = (_ff & 0xf0) | (f & 0x0f);
+    self.framesFromZero++;
+    self.frames = (self.frames & 0xf0) | (f & 0x0f);
 }
 
 @end

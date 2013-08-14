@@ -2,26 +2,7 @@
 //  F53Timecode-OSCAdditions.m
 //
 //  Created by Sean Dougall on 2/16/11.
-//
-//  Copyright (c) 2011 Figure 53 LLC, http://figure53.com
-//
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
-//
-//  The above copyright notice and this permission notice shall be included in
-//  all copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-//  THE SOFTWARE.
+//  Copyright 2011 Figure 53. All rights reserved.
 //
 
 /*
@@ -48,8 +29,8 @@
     
     if (frames < 0) value |= 1 << 22;
     
-    F53Framerate framerate = [self framerate];
-    switch (framerate.fps)
+    F53Framerate *framerate = [self framerate];
+    switch (framerate.framesPerSecond)
     {
         case 24:
             value |= 0 << 23;
@@ -73,20 +54,21 @@
 
 + (F53Timecode *) timecodeWithIntValueForOSC: (UInt32) intValue
 {
-    F53Framerate targetFramerate;
+    F53Framerate *targetFramerate;
     switch (intValue >> 23)
     {
-        case 0: targetFramerate = F53Framerate24; break;
-        case 1: targetFramerate = F53Framerate25; break;
-        case 2: targetFramerate = F53Framerate30nd; break;
-        case 3: targetFramerate = F53Framerate30df; break;
-        case 4: targetFramerate = F53Framerate23976; break;
-        case 5: targetFramerate = F53Framerate24975; break;
-        case 6: targetFramerate = F53Framerate2997nd; break;
-        case 7: targetFramerate = F53Framerate2997df; break;
+        case 0: targetFramerate = [F53Framerate framerateWith24fps]; break;
+        case 1: targetFramerate = [F53Framerate framerateWith25fps]; break;
+        case 2: targetFramerate = [F53Framerate framerateWith30nondrop]; break;
+        case 3: targetFramerate = [F53Framerate framerateWith30drop]; break;
+        case 4: targetFramerate = [F53Framerate framerateWith23976fps]; break;
+        case 5: targetFramerate = [F53Framerate framerateWith24975fps]; break;
+        case 6: targetFramerate = [F53Framerate framerateWith2997nondrop]; break;
+        case 7: targetFramerate = [F53Framerate framerateWith2997drop]; break;
     }
     
-    F53Timecode *result = [F53Timecode timecodeWithFramerate:targetFramerate hh:0 mm:0 ss:0 ff:intValue & 0x3fffff];
+    F53Timecode *result = [F53Timecode timecodeWithFramerate:targetFramerate negative:NO hours:0 minutes:0 seconds:0 frames:0 bits:0];
+    result.framesFromZero = intValue & 0x3fffff;
     return result;
 }
 
