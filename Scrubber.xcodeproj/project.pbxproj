@@ -43,6 +43,7 @@
 		409158BB172605940052EC16 /* F53Timecode-OSCAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "F53Timecode-OSCAdditions.m"; sourceTree = "<group>"; };
 		409158BC172605940052EC16 /* F53Timecode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = F53Timecode.h; sourceTree = "<group>"; };
 		409158BD172605940052EC16 /* F53Timecode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = F53Timecode.m; sourceTree = "<group>"; };
+		40CF1FF517BC0ECB004E3FD7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +113,7 @@
 		4091589C172603740052EC16 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				40CF1FF517BC0ECB004E3FD7 /* README.md */,
 				4091589D172603740052EC16 /* Scrubber-Info.plist */,
 				4091589E172603740052EC16 /* InfoPlist.strings */,
 				409158A1172603740052EC16 /* main.m */,
@@ -345,6 +347,7 @@
 				409158B1172603740052EC16 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
