@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		405209A01B89117D007CE924 /* SnoizeMIDI.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 409158B2172603C30052EC16 /* SnoizeMIDI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		40915896172603740052EC16 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40915895172603740052EC16 /* Cocoa.framework */; };
 		409158A0172603740052EC16 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4091589E172603740052EC16 /* InfoPlist.strings */; };
 		409158A2172603740052EC16 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 409158A1172603740052EC16 /* main.m */; };
@@ -19,6 +20,20 @@
 		409158BF172605940052EC16 /* F53Timecode-OSCAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 409158BB172605940052EC16 /* F53Timecode-OSCAdditions.m */; };
 		409158C0172605940052EC16 /* F53Timecode.m in Sources */ = {isa = PBXBuildFile; fileRef = 409158BD172605940052EC16 /* F53Timecode.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4052099F1B891166007CE924 /* Copy Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				405209A01B89117D007CE924 /* SnoizeMIDI.framework in Copy Frameworks */,
+			);
+			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		40915892172603740052EC16 /* Scrubber.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scrubber.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -146,6 +161,7 @@
 				4091588E172603740052EC16 /* Sources */,
 				4091588F172603740052EC16 /* Frameworks */,
 				40915890172603740052EC16 /* Resources */,
+				4052099F1B891166007CE924 /* Copy Frameworks */,
 			);
 			buildRules = (
 			);
@@ -162,7 +178,7 @@
 		4091588A172603740052EC16 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0460;
+				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = "Figure 53";
 			};
 			buildConfigurationList = 4091588D172603740052EC16 /* Build configuration list for PBXProject "Scrubber" */;
@@ -243,7 +259,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -275,7 +290,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_WARN_CONSTANT_CONVERSION = YES;

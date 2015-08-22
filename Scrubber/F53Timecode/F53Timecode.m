@@ -196,7 +196,7 @@
     self = [self init];
     if ( self )
     {
-        self.framesPerSecond = [coder decodeIntegerForKey:@"F53FramerateFramesPerSecond"];
+        self.framesPerSecond = (int)[coder decodeIntegerForKey:@"F53FramerateFramesPerSecond"];
         self.videoSpeed = [coder decodeBoolForKey:@"F53FramerateVideoSpeed"];
         self.dropFrame = [coder decodeBoolForKey:@"F53FramerateDropFrame"];
     }
@@ -269,7 +269,7 @@
         _cachedAbsoluteCommonTicks = absoluteCommonTicks;
         
         // First extract sign and subframe bits; those aren't dependent on framerate.
-        SInt32 temp = labs( absoluteCommonTicks / self.commonTicksPerBit );
+        SInt32 temp = (SInt32)labs( absoluteCommonTicks / self.commonTicksPerBit );
         _cachedComponents[0] = ( absoluteCommonTicks < 0 ? -1 : 1 );  // sign
         _cachedComponents[5] = temp % 80;                           // bits
         temp /= 80;
@@ -588,7 +588,7 @@
 
 - (SInt32) framesFromZero
 {
-    return _absoluteCommonTicks / _framerate.commonTicksPerFrame;
+    return (SInt32)( _absoluteCommonTicks / _framerate.commonTicksPerFrame );
 }
 
 - (void) setFramesFromZero:(SInt32)framesFromZero

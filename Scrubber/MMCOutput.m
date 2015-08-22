@@ -24,7 +24,7 @@
 - (void) awakeFromNib
 {
     _output = [[SMPortOutputStream alloc] init];
-    SMDestinationEndpoint *endpoint = [SMDestinationEndpoint destinationEndpointWithName:@"IAC Bus 1"];
+    SMDestinationEndpoint *endpoint = [SMDestinationEndpoint destinationEndpointWithName:@"MTC"];
     if ( endpoint )
         [_output setEndpoints:[NSSet setWithObject:endpoint]];
     else
@@ -41,7 +41,7 @@
 
 - (IBAction) scrub:(NSSlider *)sender
 {
-    F53Timecode *tc = [F53Timecode timecodeWithFramerate:[F53Framerate framerateWith2997nondrop] negative:NO hours:1 minutes:0 seconds:0 frames:0 bits:0];
+    F53Timecode *tc = [F53Timecode timecodeWithFramerate:[F53Framerate framerateWith2997nondrop] negative:NO hours:3 minutes:0 seconds:0 frames:0 bits:0];
     tc.secondsFromZero += 10.0 * 60.0 * [sender doubleValue];
     _startTimecode = [tc copy];
     _mtcTimecode = _startTimecode;
